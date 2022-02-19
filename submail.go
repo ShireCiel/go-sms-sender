@@ -41,8 +41,16 @@ func GetSubMailClient(accessId string, accessKey string, templateId string) (*Su
 
 func (c *SubMailClient) SendMessage(param map[string]string, targetPhoneNumber ...string) error {
 	//所需参数
+	code, ok := param["code"]
+	if !ok {
+		return fmt.Errorf("missing parameter: msg code")
+	}
+
+	if len(targetPhoneNumber) < 1 {
+		return fmt.Errorf("missin parer: trgetPhoneNumber")
+	}
 	vars := make(map[string]string)
-	vars["code"] = "123456"
+	vars["code"] = code
 	postdata := make(map[string]string)
 	postdata["appid"] = c.appId
 	postdata["signature"] = ""
