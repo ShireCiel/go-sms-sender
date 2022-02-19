@@ -21,7 +21,7 @@ const (
 	TencentCloud = "Tencent Cloud SMS"
 	VolcEngine   = "Volc Engine SMS"
 	Huyi         = "Huyi SMS"
-	SubMail      = "SubMail"
+	SubMail      = "SubMail SMS"
 )
 
 type SmsClient interface {
